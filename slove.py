@@ -18,12 +18,12 @@ def calc_coverage(time_list):
     for i in range(1, len(time_list)):
         start, end = time_list[i]
         if start < old_end:
-            prev_end = max(end, old_end)
+            old_end = max(end, old_end)
         else:
             coverage += (old_end - old_start)
-            prev_start, prev_end = start, end
+            old_start, old_end = start, end
         if i == len(time_list) - 1:
-            coverage += (prev_end - old_start)
+            coverage += (old_end - old_start)
     return coverage
 
 
@@ -102,5 +102,7 @@ sort_list.pop(index)
 # get coverage
 cover = calc_coverage(sort_list)
 cover = str(cover)
+print(cover)
+
 # output file
 output_file(cover)
