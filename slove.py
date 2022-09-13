@@ -14,9 +14,11 @@ def output_file(cover):
 # this fuction got help from Rishabh
 def calc_coverage(time_list):
     coverage = 0
-    old_start, old_end = time_list[0]
+    old_start = time_list[0][0]
+    old_end = time_list[0][1]
     for i in range(1, len(time_list)):
-        start, end = time_list[i]
+        start = time_list[i][0]
+        end = time_list[i][1]
         if start < old_end:
             old_end = max(end, old_end)
         else:
