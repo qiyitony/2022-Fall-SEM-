@@ -19,7 +19,7 @@ def calc_coverage(time_list):
     for i in range(1, len(time_list)):
         start = time_list[i][0]
         end = time_list[i][1]
-        if start < old_end:
+        if start < old_end: 
             old_end = max(end, old_end)
         else:
             coverage += (old_end - old_start)
